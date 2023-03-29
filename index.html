@@ -1,0 +1,25 @@
+<style>
+  h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    font-size: 500%;
+  }
+</style>
+<h1 id="time">00:00</h1>
+<script>
+  let id = "$ID";
+  let options = window.screenOptions[id];
+  alert(id, options)
+  let timeElem = options.document.getElementById("time");
+  while(options.isVisible) {
+    let t = new Date().toLocaleTimeString();
+    t = t.split(":")
+    t.pop;
+    t.join(":")
+    timeElem.innerText = t;
+    await new Promise(r => setTimeout(r, 500));
+  }
+</script>
